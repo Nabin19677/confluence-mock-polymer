@@ -1,0 +1,12 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+@import url('reset.css');
+
+:root {
+  --my-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, 'Fira Sans', 'Droid Sans';
+}
+
+html,
+body {
+  font-family: var(--my-font);
+}
