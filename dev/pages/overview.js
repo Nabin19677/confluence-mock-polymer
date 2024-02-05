@@ -1,5 +1,6 @@
 import {LitElement, html, css} from 'lit';
 
+import {feeds} from '../../mocks/feeds';
 import {recent} from '../../mocks/recent-activities';
 
 class Overview extends LitElement {
@@ -13,6 +14,12 @@ class Overview extends LitElement {
 
       .activity-card {
         width: 360px;
+      }
+
+      .feeds {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
       }
     `,
   ];
@@ -30,6 +37,22 @@ class Overview extends LitElement {
                 .lastVisited="${activity.lastVisited}"
                 .documentName="${activity.documentName}"
               ></my-document-card>
+            </div>
+          `;
+        })}
+      </div>
+
+      <h5>DISCOVER WHAT'S HAPPENING</h5>
+
+      <div class="feeds">
+        ${feeds.map((activity) => {
+          return html`
+            <div class="feed-card">
+              <my-feed-card
+                .spaceName="${activity.spaceName}"
+                .lastVisited="${activity.lastVisited}"
+                .documentName="${activity.documentName}"
+              ></my-feed-card>
             </div>
           `;
         })}
