@@ -1,4 +1,5 @@
 import {LitElement, html, css} from 'lit';
+import {map} from 'lit/directives/map.js';
 import {recent} from '../../mocks/recent-activities';
 
 class MyRecent extends LitElement {
@@ -17,8 +18,9 @@ class MyRecent extends LitElement {
       <h5>RECENT</h5>
 
       <div class="activities">
-        ${recent.map((activity) => {
-          return html`
+        ${map(
+          recent,
+          (activity) => html`
             <div class="activity-card">
               <my-recent-activity-card
                 .spaceName="${activity.spaceName}"
@@ -26,8 +28,8 @@ class MyRecent extends LitElement {
                 .documentName="${activity.documentName}"
               ></my-recent-activity-card>
             </div>
-          `;
-        })}
+          `
+        )}
       </div>
     `;
   }
